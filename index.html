@@ -21,43 +21,192 @@
             font-size: 48px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
-        .links {
-            margin-top: 50px;
+        .subtitle {
+            font-size: 24px;
+            background: linear-gradient(to right, #B0B0B0, #A9A9A9, #808080, #696969, #778899);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-top: -15px;
+            font-weight: normal;
+            position: relative;
+            right: -100px; /* 调整该值以控制向右偏移的程度 */
         }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        /* 旧版专辑 section - 粉红色 */
+        .old-album-section {
+            padding: 20px;
+            background: rgba(255, 182, 193, 0.3); /* 淡粉红色 */
+            border-radius: 10px;
+            width: 45%;
+            min-width: 300px;
+            max-width: 600px;
+            flex: 1;
+            color: #FFB6C1;
+        }
+        .old-album-section h2 {
+            color: #FFB6C1; /* 粉红色标题 */
+        }
+
+        /* 复刻专辑 section - 绿色 */
+        .reprint-section {
+            padding: 20px;
+            background: rgba(144, 238, 144, 0.3); /* 淡绿色 */
+            border-radius: 10px;
+            width: 45%;
+            min-width: 300px;
+            max-width: 600px;
+            flex: 1;
+            color: #90ee90;
+        }
+        .reprint-section h2 {
+            color: #90ee90; /* 绿色标题 */
+        }
+
+        /* solo峰 section - 秋天的落叶颜色 */
+        .solo-section {
+            padding: 20px;
+            background: rgba(255, 165, 0, 0.3); /* 淡橙黄色 */
+            border-radius: 10px;
+            width: 45%;
+            min-width: 300px;
+            max-width: 600px;
+            flex: 1;
+            color: #FFA500;
+        }
+        .solo-section h2 {
+            color: #FFA500; /* 橙黄色标题 */
+        }
+
+        /* 苏打绿出道前的篇章 section - 蓝色 */
+        .pre-debut-section {
+            padding: 20px;
+            background: rgba(173, 216, 230, 0.3); /* 淡蓝色 */
+            border-radius: 10px;
+            width: 45%;
+            min-width: 300px;
+            max-width: 600px;
+            flex: 1;
+            color: #4682B4;
+        }
+        .pre-debut-section h2 {
+            color: #4682B4; /* 柔和蓝色标题 */
+        }
+
         .links a {
             display: block;
-            font-size: 24px;
-            margin: 20px 0;
-            color: #ffffff;
+            font-size: 20px;
+            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 5px;
+            margin: 8px 0;
             transition: background 0.3s ease;
         }
         .links a:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 18px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .footer .small-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .links a {
+                font-size: 18px;
+            }
+            .section {
+                width: 80%;
+            }
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJF77RNPM0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-BJF77RNPM0');
-</script>
 <body>
-    <h1>苏打志·共享</h1>
-    <div class="links">
-        <a href="s1.pdf" target="_blank">复刻1 苏打绿</a>
-        <a href="s2.pdf" target="_blank">复刻2 小宇宙</a>
-        <a href="s3.pdf" target="_blank">复刻3 无与伦比的美丽</a>
-        <a href="s4.pdf" target="_blank">复刻4 陪我歌唱</a>
-        <a href="s5.pdf" target="_blank">复刻5 十年一刻</a>
-        <a href="s6.pdf" target="_blank">复刻6 你在烦恼什么</a>
+    <h1>苏打志·分享</h1>
+    <h2 class="subtitle">- 不止是苏打志</h2>
+
+
+    <div class="container">
+        <div class="section old-album-section">
+            <h2>旧版专辑</h2>
+            <div class="links">
+                <a href="pdf/苏打志1.pdf" target="_blank">苏打绿</a>
+                <a href="pdf/苏打志2.pdf" target="_blank">小宇宙</a>
+                <a href="pdf/苏打志3.pdf" target="_blank">无与伦比的美丽</a>
+                <a href="pdf/苏打志4.pdf" target="_blank">That Moment</a>
+                <a href="pdf/苏打志5.pdf" target="_blank">春·日光</a>
+                <a href="pdf/苏打志6.pdf" target="_blank">夏/狂热</a>
+                <a href="pdf/苏打志7.pdf" target="_blank">十年一刻</a>
+                <a href="pdf/苏打志8.pdf" target="_blank">秋:故事</a>
+                <a href="pdf/苏打志9.pdf" target="_blank">冬 未了</a>
+            </div>
+        </div>
+
+        <div class="section reprint-section">
+            <h2>复刻专辑</h2>
+            <div class="links">
+                <a href="pdf/s0.pdf" target="_blank">池塘怪谈</a>
+                <a href="pdf/s1.pdf" target="_blank">复刻1 苏打绿</a>
+                <a href="pdf/s2.pdf" target="_blank">复刻2 小宇宙</a>
+                <a href="pdf/s3.pdf" target="_blank">复刻3 无与伦比的美丽</a>
+                <a href="pdf/s4.pdf" target="_blank">复刻4 陪我歌唱</a>
+                <a href="pdf/s5.pdf" target="_blank">复刻5 十年一刻</a>
+                <a href="pdf/s6.pdf" target="_blank">复刻6 你在烦恼什么</a>
+                <a href="pdf/s7.pdf" target="_blank">复刻7 春·日光</a>
+                <a href="pdf/s8.pdf" target="_blank">复刻8 夏/狂热</a>
+            </div>
+        </div>
+
+        <div class="section solo-section">
+            <h2>solo峰</h2>
+            <div class="links">
+                <a href="pdf/备忘记.pdf" target="_blank">备忘记</a>
+                <a href="pdf/册叶小事.pdf" target="_blank">册叶小事</a>
+                <a href="gif.html" target="_blank">马拉美表情包合集</a>
+            </div>
+        </div>
+
+        <div class="section pre-debut-section">
+            <h2>附中青年</h2>
+            <div class="links">
+                <a href="fzqn/114.pdf" target="_blank">114-1998.01.14</a>
+                <a href="fzqn/115.pdf" target="_blank">115-1998.06.04(应该)</a>
+                <a href="fzqn/116.pdf" target="_blank">116-1998.12.31(疑似)</a>
+                <a href="fzqn/1162.pdf" target="_blank">疑似116的一部分</a>
+                <a href="fzqn/117.pdf" target="_blank">117</a>
+                <a href="fzqn/118.pdf" target="_blank">118</a>
+                <a href="fzqn/1182.pdf" target="_blank">疑似118的一部分</a>
+                <a href="fzqn/119.pdf" target="_blank">119</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        请多多购买正版专辑支持 苏打绿 aka 鱼丁糸 & solo峰！啾咪~~~💚💚💚
+        <div class="small-text">by Chen</div>
     </div>
 </body>
 </html>
+7
