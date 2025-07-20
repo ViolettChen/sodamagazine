@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>苏打盖</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #slideshow {
+            max-width: 90vw;
+            max-height: 80vh;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        .indicator {
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img id="slideshow" src="images/1.jpg" alt="苏打盖">
+
+    <div class="controls">
+        <button onclick="prevImage()">上一张</button>
+        <div class="indicator" id="indicator">第 1 / 4 张</div>
+        <button onclick="nextImage()">下一张</button>
+    </div>
+
+    <script>
+        const images = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg"];
+        let currentIndex = 0;
+
+        const imgElement = document.getElementById("slideshow");
+        const indicator = document.getElementById("indicator");
+
+        // 图片加载淡入效果
+        imgElement.onload = () => {
+            imgElement.style.opacity = 1;
+        };
+
+        function showImage(index) {
+            imgElement.style.opacity = 0;
+            setTimeout(() => {
+                imgElement.src = images[index];
+                indicator.textContent = `第 ${index + 1} / ${images.length} 张`;
+            }, 300); // 等待淡出动画结束
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        // 键盘事件监听
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+                prevImage();
+            } else if (e.key === "ArrowRight") {
+                nextImage();
+            }
+        });
+
+        // 初次加载时设置指示器
+        indicator.textContent = `第 ${currentIndex + 1} / ${images.length} 张`;
+
+        // // 添加触控滑动支持
+        // let startX = 0;
+        // let endX = 0;
+
+        // imgElement.addEventListener("touchstart", (e) => {
+        //     startX = e.touches[0].clientX;
+        // });
+
+        // imgElement.addEventListener("touchend", (e) => {
+        //     endX = e.changedTouches[0].clientX;
+        //     handleSwipe();
+        // });
+
+        // function handleSwipe() {
+        //     const deltaX = endX - startX;
+        //     if (Math.abs(deltaX) > 50) { // 设置滑动最小距离
+        //         if (deltaX > 0) {
+        //             prevImage(); // 右滑，上一张
+        //         } else {
+        //             nextImage(); // 左滑，下一张
+        //         }
+        //     }
+        // }
+    </script>
+
+</body>
+</html>
