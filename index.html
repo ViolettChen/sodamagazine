@@ -244,6 +244,13 @@
     object-fit: cover;
     opacity: 0.5;
   }
+
+  @media (max-width: 600px) {
+  /* 手机端：3行3列 */
+  #background-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
 </style>
 
 </head>
@@ -262,20 +269,22 @@
 
 <div id="background-grid"></div>
 <script>
-  // 使用 allImages 数组
-  const pickCount = 18;
-  const container = document.getElementById('background-grid');
-  const picked = allImages
-    .slice()
-    .sort(() => Math.random() - 0.5)
-    .slice(0, pickCount);
+    const container = document.getElementById('background-grid');
 
-  for (const filename of picked) {
-    const img = document.createElement('img');
-    img.loading = "lazy";
-    img.src = `background/${filename}`;
-    container.appendChild(img);
-  }
+    // 根据屏幕宽度决定显示多少张
+    let pickCount = window.innerWidth <= 600 ? 9 : 18;
+
+    const picked = allImages
+      .slice()
+      .sort(() => Math.random() - 0.5)
+      .slice(0, pickCount);
+
+    for (const filename of picked) {
+      const img = document.createElement('img');
+      img.loading = "lazy";
+      img.src = `background/${filename}`;
+      container.appendChild(img);
+    }
 </script>
 
 
@@ -286,7 +295,7 @@
 
     <div class="container">
         <div class="section old-album-section">
-            <h2>舊版專輯</h2>
+            <h2>十年一刻</h2>
             <div class="links">
                 <a href="pdf/苏打志1.pdf" target="_blank">蘇打綠</a>
                 <a href="pdf/苏打志2.pdf" target="_blank">小宇宙</a>
@@ -302,10 +311,10 @@
         </div>
 
         <div class="section reprint-section">
-            <h2>復刻專輯</h2>
+            <h2>Tomorrow Will be Fine</h2>
             <div class="links">
                 <a href="pdf/s0.pdf" target="_blank">池堂怪談</a>
-                <a href="pdf/s1.pdf" target="_blank">復刻1 蘇打綠</a>
+                <a href="pdf/s1.pdf" target="_blank">復刻1 不同名專輯</a>
                 <a href="pdf/s2.pdf" target="_blank">復刻2 小宇宙</a>
                 <a href="pdf/s3.pdf" target="_blank">復刻3 無與倫比的美麗</a>
                 <a href="pdf/s4.pdf" target="_blank">復刻4 陪我歌唱</a>
@@ -315,11 +324,12 @@
                 <a href="pdf/s8.pdf" target="_blank">復刻8 夏/狂熱</a>
                 <a href="pdf/s9.pdf" target="_blank">復刻9 秋:故事</a>
                 <a href="pdf/s10.pdf" target="_blank">復刻10 冬 未了</a>
+                <a href="pdf/20anniversary.pdf" target="_blank">二十年一刻</a>
             </div>
         </div>
 
         <div class="section solo-section">
-            <h2>solo小峰</h2>
+            <h2>歌頌者</h2>
             <div class="links">
                 <a href="pdf/备忘记.pdf" target="_blank">備忘記</a>
                 <a href="pdf/册叶小事.pdf" target="_blank">冊葉小事</a>
@@ -360,7 +370,14 @@
                 'zhihua/11.jpg',
                 'zhihua/22.jpg',
                 'zhihua/33.jpg',
-                'zhihua/44.jpg'
+                'zhihua/44.jpg',
+                'zhihua/20th.jpg', 
+                'zhihua/仪.jpg',
+                'zhihua/凯.jpg',
+                'zhihua/威.jpg',
+                'zhihua/峰.jpg',
+                'zhihua/福.jpg',
+                'zhihua/龚.jpg'
             ];
             
             // 创建100个纸花
